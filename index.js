@@ -344,7 +344,7 @@ exports.handler = function(event, context) {
                                 
                             // If Cloudwatch already had data for this time bucket, don't add any more.
                             if (!arrayContains(existingCloudwatchData, time.toISOString())) {
-                                console.log(checkName + ' Putting metrics into Cloudwatch for ' + time + '.');
+                                console.log(checkName + ' Putting metrics into Cloudwatch for ' + time + ': ' + up + ', ' + latency);
                                 cwMetricDataToPut.push(cwCreateAvailabilityMetricData(checkName, time, up));
                                 cwMetricDataToPut.push(cwCreateLatencyMetricData(checkName, time, latency));
                             } else {
