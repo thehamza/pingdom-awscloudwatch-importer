@@ -11,7 +11,7 @@ var PINGDOM_USERNAME = '';
 var PINGDOM_PASSWORD = '';
 
 /**
- * Return  a hashmap with configuration for the entire application.
+ * Return a hashmap with configuration for the entire application.
 **/
 generateParams = function(input) {
     var timeRange = minutesBetween(15, 1);
@@ -90,7 +90,7 @@ arrayContains = function(array, element) {
 /**
  * Invoke a Pingdom.com API.
  * apiName: name of the API to invoke
- * parameters: object of the API parameters, { param1: "value1", param2: "value2" }.
+ * parameters: A map of the API parameters, { param1: "value1", param2: "value2" }.
  * credentials: A map containing pingdomUsername, pingdomPassword, and pingdomAppkey.
  * failureCallback: a function(errorMessage) to invoke on failure.
  * successCallback: a function(jsonResponse) to invoke on success.
@@ -193,7 +193,7 @@ cwGetAvailabilityMetric = function(cwNamespace, checkName, startTime, endTime, f
 **/
 var cwMaxPutDatapoints = 20;
 cwPutMetricData = function(cwNamespace, metricData, failureCallback, successCallback) {
-    // If there's not data to put, just invoke the successCallback().  This behavior is mainly
+    // If there's not data to put, just invoke the successCallback().  This behaviour is mainly
     // to make the main method a little cleaner.
     if (metricData.length === 0) {
         successCallback();
@@ -297,7 +297,7 @@ ProgressObserver.prototype.waitForCompletion = function(callback) {
 **/
 exports.handler = function(event, context) {
     var input = generateParams();
-    console.log("Processing time-range from: " + input.startTime + " to: " + input.endTime);
+    console.log('Processing time-range from: ' + input.startTime + ' to: ' + input.endTime);
 
     // This on-failure handler will abort the entire lambda function.
     var globalAbort = function(message) {
